@@ -4,6 +4,7 @@
 .project
 .settings
 .idea
+.idea/*
 _notes
 vendor/*
 composer\.lock
