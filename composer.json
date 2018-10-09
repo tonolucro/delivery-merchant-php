@@ -1,0 +1,28 @@
+{
+  "name": "tonolucro/delivery-merchant-v1-php",
+  "description": "Biblioteca de integração com a //API Tonolucro Merchant",
+  "keywords": ["tonolucro", "delivery", "api"],
+  "homepage": "https://tonolucro.com/",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "Tonolucro",
+      "homepage": "https://tonolucro.com/"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0",
+    "ext-curl": "*",
+    "lib-curl": "*",
+    "lib-openssl": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tonolucro\\Delivery\\Merchant\\": "src/",
+      "Tonolucro\\Delivery\\Merchant\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6"
+  }
+}

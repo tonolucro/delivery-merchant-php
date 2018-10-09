@@ -1,0 +1,11 @@
+.DS_Store
+._.DS_Store
+.buildpath
+.project
+.settings
+.idea
+_notes
+vendor/*
+composer\.lock
+composer\.phar
+node_modules/
