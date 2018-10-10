@@ -11,7 +11,7 @@ Se já possui um arquivo `composer.json`, basta adicionar a seguinte dependênci
 
 ```json
 "require": {
-    "tonolucro/delivery-merchant-v1-php": "*"
+    "tonolucro/delivery-merchant-php": "*"
 }
 ```
 
@@ -24,7 +24,7 @@ composer install
 Alternativamente, você pode executar diretamente em seu terminal:
 
 ```
-composer require tonolucro/delivery-merchant-v1-php
+composer require tonolucro/delivery-merchant-php
 ```
 
 ## Documentação da API
