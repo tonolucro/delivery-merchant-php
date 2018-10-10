@@ -67,12 +67,48 @@ class Client
 
     /**
      * @param string $uri
-     * @return string
+     * @return array
      * @throws \Exception
      */
     public function get($uri){
         try {
-            $response = $this->request('GET', $uri);
+
+            $response =  $this->getAdapter()->put(
+                $this->environment->getApiUri().$uri,
+                [
+                    "headers" => ['Content-Type' => 'application/json'],
+                    "auth" => [$this->auth->getUsername(), $this->auth->getPassword()]
+                ]
+            );
+
+            if($response->getReasonPhrase()=="OK"){
+                return json_decode($response->getBody()->getContents(), true);
+            }
+
+            throw new \Exception("");
+
+        }catch (\Exception $exception){
+            throw $exception;
+        }
+    }
+
+    /**
+     * @param $uri
+     * @param array $body
+     * @return mixed
+     * @throws \Exception
+     */
+    public function put($uri, array $body){
+        try {
+
+            $response =  $this->getAdapter()->put(
+                $this->environment->getApiUri().$uri,
+                [
+                    "headers" => ['Content-Type' => 'application/json'],
+                    "auth" => [$this->auth->getUsername(), $this->auth->getPassword()],
+                    "body" => json_encode($body),
+                ]
+            );
 
             if($response->getReasonPhrase()=="OK"){
                 return json_decode($response->getBody()->getContents(), true);

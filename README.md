@@ -9,9 +9,11 @@ Biblioteca PHP de integração com a //API Tonolucro Merchant
 
 Se já possui um arquivo `composer.json`, basta adicionar a seguinte dependência ao seu projeto:
 
-```json
-"require": {
-    "tonolucro/delivery-merchant-php": "*"
+```javascript
+{
+    "require": {
+        "tonolucro/delivery-merchant-php": "*"
+    }
 }
 ```
 
@@ -29,7 +31,7 @@ composer require tonolucro/delivery-merchant-php
 
 ## Documentação da API
 
-Documentação completa da API está disponível no link [https://developers.tonolucro.com/](https://developers.tonolucro.com/)
+Documentação completa da API está disponível no link [https://developers.tonolucro.com/](https://developers.tonolucro.com/merchant/introducao)
 
 ## Utilizando o SDK
 
@@ -72,7 +74,8 @@ try{
     $data = $resource->getInfo();
 
     /**
-     * Navegue no array de informações
+     * Navegue no array de informações.
+     * Documentação: https://developers.tonolucro.com/merchant/objetos#merchant
      */
     print_r($data);
 
@@ -80,3 +83,5 @@ try{
     die($ex->getMessage());
 }
 ````
+
+Navegue na pasta /examples para conferir outros exemplos de utilização.

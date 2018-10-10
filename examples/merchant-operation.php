@@ -27,15 +27,27 @@ try{
     $resource = $manager->getMerchantResource();
 
     /**
-     * Método: https://developers.tonolucro.com/merchant/merchant#informacoes
+     * Método: https://developers.tonolucro.com/merchant/merchant#funcionamento
      */
-    $data = $resource->getInfo();
+    $data = $resource->getOperation();
 
     /**
      * Navegue no array de informações
-     * Documentação: https://developers.tonolucro.com/merchant/objetos#merchant
+     * Documentação: https://developers.tonolucro.com/merchant/objetos#merchant-operation
      */
     print_r($data);
+
+
+    /**
+     * Método: https://developers.tonolucro.com/merchant/merchant#abrir-ou-fechar
+     */
+    $result = $resource->updateOperation(false, 10);
+
+    /**
+     * Navegue no array de informações
+     * Documentação: https://developers.tonolucro.com/merchant/objetos#merchant-operation
+     */
+    print_r($result);
 
 }catch (Exception $ex){
     die($ex->getMessage());
