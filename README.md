@@ -50,19 +50,14 @@ use \Tonolucro\Delivery\Merchant\Merchant;
 use \Tonolucro\Delivery\Merchant\Http\Environment;
 
 try{
-    /**
-     * Token de autenticação
-     * Ver https://developers.tonolucro.com/merchant/autenticacao
-     */
-    $auth = new Auth(
-        'XXX'
-    );
 
     /**
      * Factory dos recursos da API
      */
     $manager = new Merchant(
-        $auth,
+        new Auth(
+            'XXX' //Ver https://developers.tonolucro.com/merchant/autenticacao
+        ),
         new Environment\Sandbox() //new Environment\Production()
     );
 
