@@ -7,7 +7,7 @@ class Merchant extends Resource
      * @return string
      * @throws \Exception
      */
-    public function info(){
+    public function getInfo(){
 
         try {
             $data = $this->getClient()->get('info');

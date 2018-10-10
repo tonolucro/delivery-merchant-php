@@ -9,9 +9,9 @@ use Tonolucro\Delivery\Merchant\Merchant;
 class MerchantTest extends TestCase
 {
     public function testInfo(){
-        $resource = (new Merchant(new Auth(""), new Sandbox()))->getMerchantResource();
+        $resource = (new Merchant(new Auth(TesterConfig::getToken()), new Sandbox()))->getMerchantResource();
 
-        $data = $resource->info();
+        $data = $resource->getInfo();
 
         print_r($data);
 
