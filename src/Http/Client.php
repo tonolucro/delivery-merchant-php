@@ -1,6 +1,9 @@
 <?php
 namespace Tonolucro\Delivery\Merchant\Http;
 
+use GuzzleHttp\Handler\CurlHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\RequestOptions;
 use Tonolucro\Delivery\Merchant\Http\Environment\EnvironmentInterface;
 
 class Client
@@ -25,7 +28,8 @@ class Client
     public function getAdapter(){
         if( $this->adapter == null ){
             $this->adapter = new \GuzzleHttp\Client([
-                'base_uri' => $this->environment->getApiUri()
+                'base_uri' => $this->environment->getApiUri(),
+                'handler' => HandlerStack::create( new CurlHandler() )
             ]);
         }
         return $this->adapter;
@@ -73,11 +77,11 @@ class Client
     public function get($uri){
         try {
 
-            $response =  $this->getAdapter()->put(
+            $response =  $this->getAdapter()->get(
                 $this->environment->getApiUri().$uri,
                 [
-                    "headers" => ['Content-Type' => 'application/json'],
-                    "auth" => [$this->auth->getUsername(), $this->auth->getPassword()]
+                    RequestOptions::AUTH => [$this->auth->getUsername(), $this->auth->getPassword()],
+                    RequestOptions::DEBUG => true
                 ]
             );
 
@@ -100,13 +104,12 @@ class Client
      */
     public function put($uri, array $body){
         try {
-
             $response =  $this->getAdapter()->put(
                 $this->environment->getApiUri().$uri,
                 [
-                    "headers" => ['Content-Type' => 'application/json'],
-                    "auth" => [$this->auth->getUsername(), $this->auth->getPassword()],
-                    "body" => json_encode($body),
+                    RequestOptions::AUTH => [$this->auth->getUsername(), $this->auth->getPassword()],
+                    RequestOptions::JSON => $body,
+                    RequestOptions::DEBUG => true
                 ]
             );
 

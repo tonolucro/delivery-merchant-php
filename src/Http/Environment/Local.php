@@ -1,11 +1,10 @@
 <?php
 namespace Tonolucro\Delivery\Merchant\Http\Environment;
 
-class Sandbox implements EnvironmentInterface
+class Local implements EnvironmentInterface
 {
-    const ID = "sandbox";
-    const BASE_URI = 'https://api.sandbox.tonolucro.com/v1/merchant/';
-    //const BASE_URI = 'https://api.sandbox.tonolucro.com/merchant/';
+    const ID = "local";
+    const BASE_URI = 'http://delivery.tonolucro.local/api/merchant/';
 
     /**
      * @return string
