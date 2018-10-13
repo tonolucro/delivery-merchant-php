@@ -12,7 +12,7 @@ Se já possui um arquivo `composer.json`, basta adicionar a seguinte dependênci
 ```javascript
 {
     "require": {
-        "tonolucro/delivery-merchant-php": "*"
+        "tonolucro/delivery-merchant-php": "^1.0.0"
     }
 }
 ```
@@ -26,7 +26,7 @@ composer install
 Alternativamente, você pode executar diretamente em seu terminal:
 
 ```
-composer require tonolucro/delivery-merchant-php
+composer require tonolucro/delivery-merchant-php ^1.0.0
 ```
 
 ## Documentação da API
