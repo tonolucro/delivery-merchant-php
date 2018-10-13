@@ -3,6 +3,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 
 use \Tonolucro\Delivery\Merchant\Http\Auth;
 use \Tonolucro\Delivery\Merchant\Http\Environment;
+use \Tonolucro\Delivery\Merchant\Http\Query;
 use \Tonolucro\Delivery\Merchant\Merchant;
 
 try{
@@ -22,20 +23,31 @@ try{
     );
 
     /**
-     * Instância do recurso /Merchant
+     * Instância do recurso
      */
-    $resource = $manager->getMerchantResource();
+    $resource = $manager->getProductResource();
 
     /**
-     * Método: https://developers.tonolucro.com/merchant/merchant#informacoes
+     * Search
      */
-    $data = $resource->getInfo();
+    $query = new Query();
+    $query->addFilter( $resource::title, 'Grande');
+    $query->addSort( $resource::title, $query::SORT_ASC);
+    $query->setPage(0, 1);
 
-    /**
-     * Navegue no array de informações
-     * Documentação: https://developers.tonolucro.com/merchant/objetos#merchant
-     */
+    $data = $resource->search($query);
+
     print_r($data);
+
+    foreach ($data['items'] as $i => $item) {
+
+        $put = $resource->active( $item['id'], true);
+        var_dump($put);
+
+        $get = $resource->get( $item['id'] );
+        print_r($get);
+
+    }
 
 }catch (Exception $ex){
     die($ex->getMessage());

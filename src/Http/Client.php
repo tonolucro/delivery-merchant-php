@@ -71,16 +71,18 @@ class Client
 
     /**
      * @param string $uri
+     * @param array $query
      * @return array
      * @throws \Exception
      */
-    public function get($uri){
+    public function get($uri, array $query = []){
         try {
 
             $response =  $this->getAdapter()->get(
                 $this->environment->getApiUri().$uri,
                 [
                     RequestOptions::AUTH => [$this->auth->getUsername(), $this->auth->getPassword()],
+                    RequestOptions::QUERY => $query,
                     RequestOptions::DEBUG => true
                 ]
             );

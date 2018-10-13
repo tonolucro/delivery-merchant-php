@@ -2,8 +2,8 @@
 require_once __DIR__.'/../vendor/autoload.php';
 
 use \Tonolucro\Delivery\Merchant\Http\Auth;
-use \Tonolucro\Delivery\Merchant\Merchant;
 use \Tonolucro\Delivery\Merchant\Http\Environment;
+use \Tonolucro\Delivery\Merchant\Merchant;
 
 try{
 

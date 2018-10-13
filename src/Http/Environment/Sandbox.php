@@ -5,7 +5,6 @@ class Sandbox implements EnvironmentInterface
 {
     const ID = "sandbox";
     const BASE_URI = 'https://api.sandbox.tonolucro.com/v1/merchant/';
-    //const BASE_URI = 'https://api.sandbox.tonolucro.com/merchant/';
 
     /**
      * @return string

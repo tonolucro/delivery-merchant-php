@@ -48,8 +48,8 @@ GET ​https://api.[sandbox.]tonolucro.com/v1/merchant/​info
 require_once 'vendor/autoload.php';
 
 use \Tonolucro\Delivery\Merchant\Http\Auth;
-use \Tonolucro\Delivery\Merchant\Merchant;
 use \Tonolucro\Delivery\Merchant\Http\Environment;
+use \Tonolucro\Delivery\Merchant\Merchant;
 
 try{
 

@@ -1,6 +1,9 @@
 <?php
 namespace Tonolucro\Delivery\Merchant\Resource;
 
+use Tonolucro\Delivery\Merchant\Helper\Exception\InvalidArgumentException;
+use Tonolucro\Delivery\Merchant\Helper\Validator;
+
 class Merchant extends Resource
 {
     /**
@@ -40,13 +43,17 @@ class Merchant extends Resource
      * Objeto: https://developers.tonolucro.com/merchant/objetos#merchant-operation
      *
      * @param bool $open
-     * @param null $minutes
+     * @param int $minutes
      * @return array
      * @throws \Exception
      */
-    public function updateOperation($open, $minutes=null){
+    public function updateOperation($open, $minutes=0){
         try
         {
+            if( !Validator::isBool($open) || !Validator::isInteger($minutes) ){
+                throw new InvalidArgumentException();
+            }
+
             return $this->getClient()->put('operation', [
                 'open' => (bool) $open,
                 'minutes' => $minutes

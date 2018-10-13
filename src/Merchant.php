@@ -53,5 +53,67 @@ class Merchant
         return new Resource\Merchant( $this->getClient() );
     }
 
+    /**
+     * @return Resource\Store\Inventory\ProductGroup
+     */
+    public function getProductGroupResource(){
+        return new Resource\Store\Inventory\ProductGroup( $this->getClient() );
+    }
+
+    /**
+     * @return Resource\Store\Inventory\Product
+     */
+    public function getProductResource(){
+        return new Resource\Store\Inventory\Product( $this->getClient() );
+    }
+
+    /**
+     * @return Resource\Store\Sales\SalesCategory
+     */
+    public function getSalesCategoryResource(){
+        return new Resource\Store\Sales\SalesCategory( $this->getClient() );
+    }
+
+    /**
+     * @return Resource\Store\Sales\SalesPricing
+     */
+    public function getSalesPricingResource(){
+        return new Resource\Store\Sales\SalesPricing( $this->getClient() );
+    }
+
+    /**
+     * @return Resource\Store\Sales\SalesProduct
+     */
+    public function getSalesProductResource(){
+        return new Resource\Store\Sales\SalesProduct( $this->getClient() );
+    }
+
+    /**
+     * @return Resource\ExternalID
+     */
+    public function getExternalIDResource(){
+        return new Resource\ExternalID( $this->getClient() );
+    }
+
+    /**
+     * @return Resource\Order
+     */
+    public function getOrderResource(){
+        return new Resource\Order( $this->getClient() );
+    }
+
+    /**
+     * @return Resource\Order\Live
+     */
+    public function getOrderLiveResource(){
+        return new Resource\Order\Live( $this->getClient() );
+    }
+
+    /**
+     * @return Resource\Order\Workflow
+     */
+    public function getOrderWorkflowResource(){
+        return new Resource\Order\Workflow( $this->getClient() );
+    }
 
 }
