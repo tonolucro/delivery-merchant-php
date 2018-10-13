@@ -83,7 +83,7 @@ class Client
                 [
                     RequestOptions::AUTH => [$this->auth->getUsername(), $this->auth->getPassword()],
                     RequestOptions::QUERY => $query,
-                    RequestOptions::DEBUG => true
+                    RequestOptions::DEBUG => false
                 ]
             );
 
@@ -111,7 +111,7 @@ class Client
                 [
                     RequestOptions::AUTH => [$this->auth->getUsername(), $this->auth->getPassword()],
                     RequestOptions::JSON => $body,
-                    RequestOptions::DEBUG => true
+                    RequestOptions::DEBUG => false
                 ]
             );
 
